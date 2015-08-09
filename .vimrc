@@ -14,6 +14,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-fireplace'
 Plugin 'ervandew/supertab'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -23,6 +24,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'christoomey/vim-sort-motion'
+Plugin 'guns/vim-clojure-static'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'guns/vim-clojure-highlight'
 
 call vundle#end()
 filetype plugin indent on
@@ -125,6 +129,7 @@ command! Qall qall
 command! Sl :!git stash list<CR>
 command! Sp :!git stash pop<CR>
 command! Ss :!git stash<CR>
+nnoremap <C-l> :!clear<CR><CR>
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>a :A<CR>
 nnoremap <leader>bp Obinding.pry<ESC>:w<ESC>
@@ -147,6 +152,7 @@ nnoremap <leader>gw :!git add . && git commit -m "WIP"<CR><CR>
 nnoremap <leader>ja :!java %:r <C-r>a<CR>
 nnoremap <leader>jc :!javac %<CR>
 nnoremap <leader>jr :!java %:r 
+nnoremap <leader>lr :!lein run<CR>
 nnoremap <leader>m :Emodel 
 nnoremap <leader>na O<C-[>j:w<ESC>
 nnoremap <leader>nb o<C-[>k:w<ESC>
@@ -166,6 +172,13 @@ augroup reload_vimrc " {
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
+
+augroup rainbow_parenthesis
+  au VimEnter * RainbowParenthesesToggle
+  au Syntax * RainbowParenthesesLoadRound
+  au Syntax * RainbowParenthesesLoadSquare
+  au Syntax * RainbowParenthesesLoadBraces
+augroup END
 
 " Script to swap to the alternate file, vertically split, and reopen prev file
 function! OpenAlternateWindowSplit()
