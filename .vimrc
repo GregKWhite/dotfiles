@@ -25,8 +25,9 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'christoomey/vim-sort-motion'
 Plugin 'guns/vim-clojure-static'
-Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'luochen1990/rainbow'
 Plugin 'guns/vim-clojure-highlight'
+Plugin 'mhumeSF/one-dark.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -34,6 +35,7 @@ filetype plugin indent on
 " Use the Solarized Dark theme
 set background=dark
 colorscheme sexy-railscasts-256
+" colorscheme onedark
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
@@ -173,13 +175,6 @@ augroup reload_vimrc " {
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
 
-augroup rainbow_parenthesis
-  au VimEnter * RainbowParenthesesToggle
-  au Syntax * RainbowParenthesesLoadRound
-  au Syntax * RainbowParenthesesLoadSquare
-  au Syntax * RainbowParenthesesLoadBraces
-augroup END
-
 " Script to swap to the alternate file, vertically split, and reopen prev file
 function! OpenAlternateWindowSplit()
   :e#
@@ -208,3 +203,10 @@ if has('persistent_undo')
   set undofile
   set undodir=$HOME/.vim/undo
 endif
+
+" Enable rainbow parenthesis
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+      \ 'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta',],
+      \ }
+
