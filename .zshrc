@@ -24,5 +24,6 @@ alias please='sudo $(history -p !!)'
 alias cds='cd ~/google\ drive/ucf/summer\ 2015'
 alias c='clear'
 alias tmux="TERM=screen-256color-bce tmux"
+alias gca='git commit --amend --reuse-message=HEAD'
 
 export TERM='xterm-256color'

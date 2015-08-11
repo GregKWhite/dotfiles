@@ -24,10 +24,13 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'christoomey/vim-sort-motion'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'guns/vim-clojure-static'
 Plugin 'luochen1990/rainbow'
 Plugin 'guns/vim-clojure-highlight'
 Plugin 'mhumeSF/one-dark.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'thoughtbot/vim-rspec'
 
 call vundle#end()
 filetype plugin indent on
@@ -90,9 +93,10 @@ set noerrorbells
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
 " Show the cursor position
-set colorcolumn=101
-highlight ColorColumn ctermbg=0
-let &colorcolumn=join(range(101,999),",")
+" set colorcolumn=101
+highlight ColorColumn ctermbg=88
+let &colorcolumn=101
+" Highlight words past 100 chars
 " Don’t show the intro message when starting Vim
 " set shortmess=atI
 " Show the current mode
@@ -142,7 +146,8 @@ nnoremap <leader>ci j^y$k^hpa <ESC>j2ddk
 nnoremap <leader>co :!git checkout 
 nnoremap <leader>df :/def\ \(self\.\)\?\(<c-r>=expand("<cword>")<cr>\)<CR><ESC>
 nnoremap <leader>dg :Ag! def\ \(self\.\)\?\(<c-r>=expand("<cword>")<cr>\)<CR><ESC>
-nnoremap <leader>dt :Gdiff<CR>
+nnoremap <leader>dt :call DiffUseTarget()<CR>
+nnoremap <leader>dm :call DiffUseMerge()<CR>
 nnoremap <leader>fb :Ag! binding.pry<CR>
 nnoremap <leader>ga :!git add .<CR><CR>
 nnoremap <leader>gc :!git commit<CR>
@@ -182,6 +187,17 @@ function! OpenAlternateWindowSplit()
   :e#
 endfunction
 
+" Functions to take the diff from target or merge, respectively
+function! DiffUseTarget()
+  :diffget //2
+  :diffupdate
+endfunction
+
+function! DiffUseMerge()
+  :diffget //3
+  :diffupdate
+endfunction
+
 " Use the silver searcher
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
@@ -207,6 +223,6 @@ endif
 " Enable rainbow parenthesis
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-      \ 'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta',],
+      \ 'ctermfgs': ['lightgreen', 'lightblue', 'darkred', 'lightcyan',
+      \ 'lightyellow'],
       \ }
-
