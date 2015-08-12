@@ -223,6 +223,5 @@ endif
 " Enable rainbow parenthesis
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-      \ 'ctermfgs': ['lightgreen', 'lightblue', 'darkred', 'lightcyan',
-      \ 'lightyellow'],
+      \ 'ctermfgs': ['darkyellow', 'darkmagenta', 'darkred', 'darkgreen'],
       \ }
