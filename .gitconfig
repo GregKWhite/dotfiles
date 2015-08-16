@@ -1,0 +1,17 @@
+[core]
+	editor = vim
+[user]
+	name = Greg White
+	email = gkwhite95@gmail.com
+[color]
+	ui = true
+[alias]
+	a = add -A
+  cl = log --name-only --pretty=colored --author Greg
+  cm = commit -m
+  co = checkout
+  cod = checkout develop
+  cob = checkout -b
+  ca = commit --amend --reuse-message HEAD
+[pretty]
+  colored = format:%C(bold yellow)%h%Creset %s %Cgreen(%cr)
