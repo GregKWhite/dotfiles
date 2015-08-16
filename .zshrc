@@ -25,5 +25,13 @@ alias cds='cd ~/google\ drive/ucf/summer\ 2015'
 alias c='clear'
 alias tmux="TERM=screen-256color-bce tmux"
 alias gca='git commit --amend --reuse-message=HEAD'
+alias cdd='cd ~/dotfiles'
+alias sz='source ~/.zshrc'
 
 export TERM='xterm-256color'
+
+# use vi mode
+export KEYTIMEOUT=1
+bindkey -v
+bindkey '^p' up-history
+bindkey '^n' down-history
