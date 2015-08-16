@@ -18,7 +18,6 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'ervandew/supertab'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kana/vim-textobj-user'
@@ -29,8 +28,7 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'luochen1990/rainbow'
 Plugin 'guns/vim-clojure-highlight'
 Plugin 'mhumeSF/one-dark.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'thoughtbot/vim-rspec'
+Plugin 'sirver/ultisnips'
 
 call vundle#end()
 filetype plugin indent on
@@ -128,7 +126,9 @@ command! Gca :!git add . && git commit --amend<CR>
 command! Gmd :!git merge develop<CR>
 command! Gpd :!git stash && git checkout develop && git pull && git checkout -<CR>
 command! Gri :!git rebase -i develop<CR>
+command! PC :PluginClean
 command! PI :PluginInstall
+command! PL :PluginList
 command! Q q
 command! QA qall
 command! Qall qall
