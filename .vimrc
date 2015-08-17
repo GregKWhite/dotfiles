@@ -31,6 +31,10 @@ Plugin 'mhumeSF/one-dark.vim'
 Plugin 'sirver/ultisnips'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'guns/vim-sexp'
+Plugin 'Raimondi/delimitMate'
+
 
 let g:rspec_command = "Dispatch rspec {spec}"
 
@@ -173,6 +177,7 @@ nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>va :AV<CR>
 nnoremap <leader>vo :call OpenAlternateWindowSplit()<CR>
 nnoremap <leader>vr :e ~/.vimrc<CR>
+nnoremap <leader>vs :UltiSnipsEdit<CR>
 nnoremap <silent> <esc> :noh<cr><esc>
 noremap <leader>sg :%s/
 noremap <leader>sl :s/
@@ -229,3 +234,12 @@ let g:rainbow_active = 1
 let g:rainbow_conf = {
       \ 'ctermfgs': ['darkyellow', 'darkmagenta', 'darkred', 'darkgreen'],
       \ }
+
+let g:UltiSnipsSnippetDirectories=["my_snips"]
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="context"
+let g:UltiSnipsSnippetsDir="~/.vim/my_snips"
+
+let delimitMate_quotes = "\" ' | * "

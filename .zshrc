@@ -21,12 +21,16 @@ alias gl='git cl'
 alias gd='git diff'
 alias a='ls -Gfa'
 alias please='sudo $(history -p !!)'
-alias cds='cd ~/google\ drive/ucf/summer\ 2015'
+alias cds='cd ~/google\ drive/ucf/fall\ 2015'
 alias c='clear'
 alias tmux="TERM=screen-256color-bce tmux"
 alias gca='git commit --amend --reuse-message=HEAD'
 alias cdd='cd ~/dotfiles'
 alias sz='source ~/.zshrc'
+alias tls='tmux ls'
+alias lr='lein repl'
+alias le='lein exec'
+alias oif='open -a finder .'
 
 export TERM='xterm-256color'
 

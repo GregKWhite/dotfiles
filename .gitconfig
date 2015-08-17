@@ -1,5 +1,7 @@
 [core]
 	editor = vim
+[push]
+  default = simple
 [user]
 	name = Greg White
 	email = gkwhite95@gmail.com
@@ -15,3 +17,5 @@
   ca = commit --amend --reuse-message HEAD
 [pretty]
   colored = format:%C(bold yellow)%h%Creset %s %Cgreen(%cr)
+[help]
+	autocorrect = 5
