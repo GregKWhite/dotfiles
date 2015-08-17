@@ -29,6 +29,10 @@ Plugin 'luochen1990/rainbow'
 Plugin 'guns/vim-clojure-highlight'
 Plugin 'mhumeSF/one-dark.vim'
 Plugin 'sirver/ultisnips'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-dispatch'
+
+let g:rspec_command = "Dispatch rspec {spec}"
 
 call vundle#end()
 filetype plugin indent on
