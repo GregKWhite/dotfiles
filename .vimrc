@@ -150,6 +150,7 @@ command! Sl :!git stash list<CR>
 command! Sp :!git stash pop<CR>
 command! Ss :!git stash<CR>
 nnoremap <C-l> :!clear<CR><CR>
+nnoremap <C-/> :noh<CR>
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>a :A<CR>
 nnoremap <leader>bp Obinding.pry<ESC>:w<ESC>
@@ -186,16 +187,17 @@ nnoremap <leader>va :AV<CR>
 nnoremap <leader>vo :call OpenAlternateWindowSplit()<CR>
 nnoremap <leader>vr :e ~/.vimrc<CR>
 nnoremap <leader>vs :UltiSnipsEdit<CR>
-nnoremap <silent> <esc> :noh<cr><esc>
 noremap <leader>sg :%s/
 noremap <leader>sl :s/
 noremap <leader>w :w<CR>
 
+autocmd! bufwritepost .vimrc source %
+
 " Reload the vimrc every time it is saved
-augroup reload_vimrc " {
-    autocmd!
-    autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }
+" augroup reload_vimrc " {
+"     autocmd!
+"     autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" augroup END " }
 
 " Script to swap to the alternate file, vertically split, and reopen prev file
 function! OpenAlternateWindowSplit()
@@ -240,13 +242,13 @@ endif
 " Enable rainbow parenthesis
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-      \ 'ctermfgs': ['darkyellow', 'darkmagenta', 'darkred', 'darkgreen'],
+      \ 'ctermfgs': ['darkyellow', 'darkblue', 'darkred', 'darkgreen'],
       \ }
 
 let g:UltiSnipsSnippetDirectories=["my_snips"]
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 let g:UltiSnipsEditSplit="context"
 let g:UltiSnipsSnippetsDir="~/.vim/my_snips"
 

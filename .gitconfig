@@ -20,3 +20,5 @@
   colored = format:%C(bold yellow)%h%Creset %s %Cgreen(%cr)
 [help]
 	autocorrect = 5
+[rerere]
+	enabled = true
