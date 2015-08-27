@@ -1,7 +1,7 @@
 [core]
 	editor = vim
 [push]
-  default = simple
+	default = current
 [user]
 	name = Greg White
 	email = gkwhite95@gmail.com
@@ -15,6 +15,7 @@
   cod = checkout develop
   cob = checkout -b
   ca = commit --amend --reuse-message HEAD
+  save = !sh -c 'export PREV=$(git symbolic-ref HEAD|cut -d/ -f3-) && git checkout -b "$1" && git commit -am "$1" && git checkout "$PREV"' -
 [pretty]
   colored = format:%C(bold yellow)%h%Creset %s %Cgreen(%cr)
 [help]

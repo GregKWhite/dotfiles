@@ -115,6 +115,12 @@ set showcmd
 set scrolloff=3
 " Set the diff opt to be vertical because it's more intuitive
 set diffopt=vertical
+" Turn off wrapping
+set nowrap
+" Turn off automatic comment insertion
+set formatoptions-=cro
+" Change tags directory
+set tags=./.git/tags;
 
 " Set up the status line to show changes, name, readonly, line count
 :set statusline=%{fugitive#statusline()}
@@ -147,6 +153,7 @@ nnoremap <C-l> :!clear<CR><CR>
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>a :A<CR>
 nnoremap <leader>bp Obinding.pry<ESC>:w<ESC>
+nnoremap <leader>ca :!git ca
 nnoremap <leader>c- :!git checkout -<CR><CR>
 nnoremap <leader>cb ^<kDIVIDE>do\ \|<CR>cw{<ESC>JA }<ESC>jddk
 nnoremap <leader>cd :!git stash && git checkout develop<CR>
@@ -160,7 +167,7 @@ nnoremap <leader>fb :Ag! binding.pry<CR>
 nnoremap <leader>ga :!git add .<CR><CR>
 nnoremap <leader>gc :!git commit<CR>
 nnoremap <leader>gd :!git diff<CR>
-nnoremap <leader>gl :!git log --name-only<CR>
+nnoremap <leader>gl :!git cl<CR>
 nnoremap <leader>gp :!git push
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gw :!git add . && git commit -m "WIP"<CR><CR>
@@ -173,6 +180,7 @@ nnoremap <leader>na O<C-[>j:w<ESC>
 nnoremap <leader>nb o<C-[>k:w<ESC>
 nnoremap <leader>o :CtrlP<CR>
 nnoremap <leader>sb :!git stash branch 
+nnoremap <leader>sc :!git save 
 nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>va :AV<CR>
 nnoremap <leader>vo :call OpenAlternateWindowSplit()<CR>
