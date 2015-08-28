@@ -10,12 +10,16 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Use rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+
 # source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 
 # Customize to your needs...
-alias gad='git a'
+alias ga='git a'
 alias gcm='git commit -m'
+alias gc='git commit'
 alias gs='git status'
 alias gl='git cl'
 alias gd='git diff'
@@ -32,6 +36,9 @@ alias lr='lein repl'
 alias le='lein exec'
 alias oif='open -a finder .'
 alias eclim="/Applications/Eclipse.app/Contents/Eclipse/eclimd"
+alias rs='rspec'
+alias rsa='rspec -t "~all"'
+alias ctags="`brew --prefix`/bin/ctags"
 
 export TERM='xterm-256color'
 
@@ -40,3 +47,4 @@ export KEYTIMEOUT=1
 bindkey -v
 bindkey '^p' up-history
 bindkey '^n' down-history
+bindkey "^R" history-incremental-search-backward

@@ -1,6 +1,14 @@
-snippet class
-class ${1:`substitute(Filename(), '^.', '\u&', '')`}
+snippet "clas?s?\ ?" "class ... end" rb
+class ${1:class_name}
   $2
+end
+endsnippet
+
+snippet 'cla?s?s?i ' "class initialize end" rb
+class ${1:class_name}
+  def initialize($2)
+	  $3
+  end
 end
 endsnippet
 
@@ -16,8 +24,8 @@ do |$1|
 end
 endsnippet
 
-snippet it
-it "$1" do
+snippet 'it\ ?('.*')?' "it ... end" rb
+it '$1' do
   $2
 end
 endsnippet
@@ -29,13 +37,13 @@ end
 endsnippet
 
 snippet con
-context "$1" do
+context '$1' do
   $2
 end
 endsnippet
 
 snippet des
-describe "$1" do
+describe '$1' do
   $2
 end
 endsnippet
