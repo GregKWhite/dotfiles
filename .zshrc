@@ -31,6 +31,7 @@ alias tls='tmux ls'
 alias lr='lein repl'
 alias le='lein exec'
 alias oif='open -a finder .'
+alias eclim="/Applications/Eclipse.app/Contents/Eclipse/eclimd"
 
 export TERM='xterm-256color'
 

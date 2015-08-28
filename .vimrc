@@ -232,7 +232,7 @@ endif
 " Enable rainbow parenthesis
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-      \ 'ctermfgs': ['darkyellow', 'darkmagenta', 'darkred', 'darkgreen'],
+      \ 'ctermfgs': ['darkyellow', 'darkblue', 'darkred', 'darkgreen'],
       \ }
 
 let g:UltiSnipsSnippetDirectories=["my_snips"]
