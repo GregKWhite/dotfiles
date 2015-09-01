@@ -30,12 +30,14 @@ alias c='clear'
 alias tmux="TERM=screen-256color-bce tmux"
 alias gca='git commit --amend --reuse-message=HEAD'
 alias cdd='cd ~/dotfiles'
+alias rc='rubocop -f clang'
 alias sz='source ~/.zshrc'
 alias tls='tmux ls'
 alias lr='lein repl'
 alias le='lein exec'
 alias oif='open -a finder .'
 alias eclim="/Applications/Eclipse.app/Contents/Eclipse/eclimd"
+alias rd='rubodiff'
 alias rs='rspec'
 alias rsa='rspec -t "~all"'
 alias ctags="`brew --prefix`/bin/ctags"

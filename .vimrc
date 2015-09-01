@@ -32,8 +32,10 @@ Plugin 'sirver/ultisnips'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'guns/vim-sexp'
 Plugin 'Raimondi/delimitMate'
+Plugin 'ngmy/vim-rubocop'
 
 
 let g:rspec_command = "Dispatch rspec {spec}"
@@ -99,9 +101,10 @@ set noerrorbells
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
 " Show the cursor position
-" set colorcolumn=101
-highlight ColorColumn ctermbg=88
-let &colorcolumn=101
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%101v', 100)
+" highlight ColorColumn ctermbg=88
+" let &colorcolumn=101
 " Highlight words past 100 chars
 " Don’t show the intro message when starting Vim
 " set shortmess=atI
@@ -149,6 +152,7 @@ command! Qall qall
 command! Sl :!git stash list<CR>
 command! Sp :!git stash pop<CR>
 command! Ss :!git stash<CR>
+nnoremap ; :
 nnoremap <C-l> :!clear<CR><CR>
 nnoremap <C-/> :noh<CR>
 nnoremap <leader><leader> <c-^>
@@ -190,6 +194,7 @@ nnoremap <leader>vs :UltiSnipsEdit<CR>
 noremap <leader>sg :%s/
 noremap <leader>sl :s/
 noremap <leader>w :w<CR>
+vnoremap <leader>i :call ChangeToPercentI()<CR>
 
 autocmd! bufwritepost .vimrc source %
 
@@ -217,6 +222,15 @@ function! DiffUseMerge()
   :diffupdate
 endfunction
 
+" Changes array of symbols to %i
+function! ChangeToPercentI() range
+  :execute (a:firstline) . "," . a:lastline . 's/,//e'
+  :execute (a:firstline) . "," . a:lastline . 's/://e'
+  :execute (a:firstline) . "," . a:lastline . 's/\[/%i(/e'
+  :execute (a:firstline) . "," . a:lastline . 's/]/)/e'
+  :noh
+endfunction
+
 " Use the silver searcher
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
@@ -229,8 +243,8 @@ if executable('ag')
 
   " Use ag in CtrlP for files
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
   let g:ctrlp_use_caching = 0
+  let g:ag_highlight=1
 end
 
 " set up persistent undo so that changes can be undone after saving
@@ -242,7 +256,7 @@ endif
 " Enable rainbow parenthesis
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-      \ 'ctermfgs': ['darkyellow', 'darkblue', 'darkred', 'darkgreen'],
+      \ 'ctermfgs': ['darkblue', 'darkyellow', 'darkred', 'darkgreen'],
       \ }
 
 let g:UltiSnipsSnippetDirectories=["my_snips"]
