@@ -50,3 +50,5 @@ bindkey -v
 bindkey '^p' up-history
 bindkey '^n' down-history
 bindkey "^R" history-incremental-search-backward
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

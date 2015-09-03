@@ -36,6 +36,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'guns/vim-sexp'
 Plugin 'Raimondi/delimitMate'
 Plugin 'ngmy/vim-rubocop'
+Plugin 'suan/vim-instant-markdown'
 
 
 let g:rspec_command = "Dispatch rspec {spec}"
@@ -70,9 +71,6 @@ set noswapfile
 " Respect modeline in files
 set modeline
 set modelines=4
-" Enable per-directory .vimrc files and disable unsafe commands in them
-set exrc
-set secure
 " Enable line numbers
 set relativenumber
 set number
@@ -84,7 +82,7 @@ set shiftwidth=2
 set shiftround
 set expandtab
 " Show “invisible” characters
-set lcs=trail:·,tab:▸\ 
+set lcs=trail:·,tab:▸\
 set list
 " Highlight searches
 set hlsearch
@@ -163,7 +161,7 @@ nnoremap <leader>c- :!git checkout -<CR><CR>
 nnoremap <leader>cb ^<kDIVIDE>do\ \|<CR>cw{<ESC>JA }<ESC>jddk
 nnoremap <leader>cd :!git stash && git checkout develop<CR>
 nnoremap <leader>ci j^y$k^hpa <ESC>j2ddk
-nnoremap <leader>co :!git checkout 
+nnoremap <leader>co :!git checkout
 nnoremap <leader>df :/def\ \(self\.\)\?\(<c-r>=expand("<cword>")<cr>\)<CR><ESC>
 nnoremap <leader>dg :Ag! def\ \(self\.\)\?\(<c-r>=expand("<cword>")<cr>\)<CR><ESC>
 nnoremap <leader>dt :call DiffUseTarget()<CR>
@@ -177,24 +175,27 @@ nnoremap <leader>gp :!git push
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gw :!git add . && git commit -m "WIP"<CR><CR>
 nnoremap <leader>ja :!java %:r <C-r>a<CR>
-nnoremap <leader>jc :!javac %<CR>
-nnoremap <leader>jr :!java %:r 
+nnoremap <leader>jc :Dispatch javac %<CR>
+nnoremap <leader>jd :Dispatch java %:r 
+nnoremap <leader>jr :!java %:r
 nnoremap <leader>lr :!lein run<CR>
-nnoremap <leader>m :Emodel 
+nnoremap <leader>m :Emodel
 nnoremap <leader>na O<C-[>j:w<ESC>
 nnoremap <leader>nb o<C-[>k:w<ESC>
 nnoremap <leader>o :CtrlP<CR>
-nnoremap <leader>sb :!git stash branch 
-nnoremap <leader>sc :!git save 
+nnoremap <leader>sb :!git stash branch
+nnoremap <leader>sc :!git save
 nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>va :AV<CR>
-nnoremap <leader>vo :call OpenAlternateWindowSplit()<CR>
+nnoremap <leader>vo :vs#<CR>
 nnoremap <leader>vr :e ~/.vimrc<CR>
+nnoremap <leader>vv :vs ~/.vimrc<CR>
 nnoremap <leader>vs :UltiSnipsEdit<CR>
 noremap <leader>sg :%s/
 noremap <leader>sl :s/
 noremap <leader>w :w<CR>
 vnoremap <leader>i :call ChangeToPercentI()<CR>
+vnoremap <leader>w :call ChangeToPercentW()<CR>
 
 autocmd! bufwritepost .vimrc source %
 
@@ -207,6 +208,13 @@ autocmd! bufwritepost .vimrc source %
 " Script to swap to the alternate file, vertically split, and reopen prev file
 function! OpenAlternateWindowSplit()
   :e#
+  :vsplit
+  :e#
+endfunction
+
+" Open the vimrc in a vertical split
+function! OpenVimrcSplit()
+  :e ~/.vimrc
   :vsplit
   :e#
 endfunction
@@ -224,11 +232,25 @@ endfunction
 
 " Changes array of symbols to %i
 function! ChangeToPercentI() range
-  :execute (a:firstline) . "," . a:lastline . 's/,//e'
-  :execute (a:firstline) . "," . a:lastline . 's/://e'
-  :execute (a:firstline) . "," . a:lastline . 's/\[/%i(/e'
-  :execute (a:firstline) . "," . a:lastline . 's/]/)/e'
+  :call ChangeArrayToPercent("i", ":", a:firstline, a:lastline)
+endfunction
+
+" Change array from array of strings to %w
+function! ChangeToPercentW() range
+  :call ChangeArrayToPercent("w", "'", a:firstline, a:lastline)
+endfunction
+
+function! ChangeArrayToPercent(Type, Identifier, Firstline, Lastline)
+  :execute a:Firstline . "," . a:Lastline . ('s/' . a:Identifier . '//e')
+  :execute a:Firstline . "," . a:Lastline . 's/,//e'
+  :execute a:Firstline . "," . a:Lastline . ('s/\[/%' . a:Type . '(/e')
+  :execute a:Firstline . "," . a:Lastline . 's/]/)/e'
   :noh
+endfunction
+
+" Removes trailing whitespace
+function! RemoveWhitespace()
+  :%s/\s\+$//e
 endfunction
 
 " Use the silver searcher
@@ -266,4 +288,4 @@ let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 let g:UltiSnipsEditSplit="context"
 let g:UltiSnipsSnippetsDir="~/.vim/my_snips"
 
-let delimitMate_quotes = "\" ' | * "
+let delimitMate_quotes = "\" ' | "
