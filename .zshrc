@@ -41,6 +41,7 @@ alias rd='rubodiff'
 alias rs='rspec'
 alias rsa='rspec -t "~all"'
 alias ctags="`brew --prefix`/bin/ctags"
+alias vi='vim'
 
 export TERM='xterm-256color'
 

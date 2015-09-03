@@ -27,7 +27,6 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'guns/vim-clojure-static'
 Plugin 'luochen1990/rainbow'
 Plugin 'guns/vim-clojure-highlight'
-Plugin 'mhumeSF/one-dark.vim'
 Plugin 'sirver/ultisnips'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'
@@ -44,10 +43,9 @@ let g:rspec_command = "Dispatch rspec {spec}"
 call vundle#end()
 filetype plugin indent on
 
-" Use the Solarized Dark theme
+" Set up the background
 set background=dark
 colorscheme sexy-railscasts-256
-" colorscheme onedark
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
@@ -82,7 +80,7 @@ set shiftwidth=2
 set shiftround
 set expandtab
 " Show “invisible” characters
-set lcs=trail:·,tab:▸\
+set lcs=trail:·,tab:▸\ ,
 set list
 " Highlight searches
 set hlsearch
@@ -120,8 +118,6 @@ set diffopt=vertical
 set nowrap
 " Turn off automatic comment insertion
 set formatoptions-=cro
-" Change tags directory
-set tags=./.git/tags;
 
 " Set up the status line to show changes, name, readonly, line count
 :set statusline=%{fugitive#statusline()}
@@ -161,7 +157,7 @@ nnoremap <leader>c- :!git checkout -<CR><CR>
 nnoremap <leader>cb ^<kDIVIDE>do\ \|<CR>cw{<ESC>JA }<ESC>jddk
 nnoremap <leader>cd :!git stash && git checkout develop<CR>
 nnoremap <leader>ci j^y$k^hpa <ESC>j2ddk
-nnoremap <leader>co :!git checkout
+nnoremap <leader>co :!git checkout 
 nnoremap <leader>df :/def\ \(self\.\)\?\(<c-r>=expand("<cword>")<cr>\)<CR><ESC>
 nnoremap <leader>dg :Ag! def\ \(self\.\)\?\(<c-r>=expand("<cword>")<cr>\)<CR><ESC>
 nnoremap <leader>dt :call DiffUseTarget()<CR>
@@ -173,17 +169,16 @@ nnoremap <leader>gd :!git diff<CR>
 nnoremap <leader>gl :!git cl<CR>
 nnoremap <leader>gp :!git push
 nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gw :!git add . && git commit -m "WIP"<CR><CR>
+nnoremap <leader>gw :!git commit -m "WIP"<CR><CR>
 nnoremap <leader>ja :!java %:r <C-r>a<CR>
 nnoremap <leader>jc :Dispatch javac %<CR>
 nnoremap <leader>jd :Dispatch java %:r 
-nnoremap <leader>jr :!java %:r
+nnoremap <leader>jr :!java %:r 
 nnoremap <leader>lr :!lein run<CR>
-nnoremap <leader>m :Emodel
+nnoremap <leader>m :Emodel 
 nnoremap <leader>na O<C-[>j:w<ESC>
 nnoremap <leader>nb o<C-[>k:w<ESC>
 nnoremap <leader>o :CtrlP<CR>
-nnoremap <leader>sb :!git stash branch
 nnoremap <leader>sc :!git save
 nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>va :AV<CR>
@@ -198,12 +193,6 @@ vnoremap <leader>i :call ChangeToPercentI()<CR>
 vnoremap <leader>w :call ChangeToPercentW()<CR>
 
 autocmd! bufwritepost .vimrc source %
-
-" Reload the vimrc every time it is saved
-" augroup reload_vimrc " {
-"     autocmd!
-"     autocmd BufWritePost $MYVIMRC source $MYVIMRC
-" augroup END " }
 
 " Script to swap to the alternate file, vertically split, and reopen prev file
 function! OpenAlternateWindowSplit()
@@ -289,3 +278,6 @@ let g:UltiSnipsEditSplit="context"
 let g:UltiSnipsSnippetsDir="~/.vim/my_snips"
 
 let delimitMate_quotes = "\" ' | "
+
+" Prevent CtrlP from closing NERDTree
+let g:ctrlp_dont_split = 'NERD'
