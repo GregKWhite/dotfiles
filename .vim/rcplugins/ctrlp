@@ -1,3 +1,4 @@
+" vim:ft=vim
 Plugin 'kien/ctrlp.vim'
 
 " Prevent CtrlP from closing NERDTree

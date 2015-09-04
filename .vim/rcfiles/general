@@ -1,3 +1,4 @@
+" vim:ft=vim
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enables matchit.vim - used by rubyblock plugin

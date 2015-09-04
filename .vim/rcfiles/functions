@@ -1,3 +1,4 @@
+" vim:ft=vim
 " Script to swap to the alternate file, vertically split, and reopen prev file
 function! OpenAlternateWindowSplit()
   :e#

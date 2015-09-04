@@ -1,3 +1,4 @@
+" vim:ft=vim
 Plugin 'sirver/ultisnips'
 
 let g:UltiSnipsSnippetDirectories=["my_snips"]

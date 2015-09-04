@@ -1,3 +1,4 @@
+" vim:ft=vim
 Plugin 'Raimondi/delimitMate'
 
 let delimitMate_quotes = "\" ' | "

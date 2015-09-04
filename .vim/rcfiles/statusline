@@ -1,3 +1,4 @@
+" vim:ft=vim
 " Set up the status line to show changes, name, readonly, line count
 :set statusline=%{fugitive#statusline()}
 :set statusline+=%#TODO#

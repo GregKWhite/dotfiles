@@ -1,3 +1,4 @@
+" vim:ft=vim
 Plugin 'luochen1990/rainbow'
 
 " Enable rainbow parenthesis

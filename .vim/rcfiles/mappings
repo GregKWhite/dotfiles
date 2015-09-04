@@ -1,3 +1,4 @@
+" vim:ft=vim
 command! E e
 command! Gca :!git add . && git commit --amend<CR>
 command! Gmd :!git merge develop<CR>

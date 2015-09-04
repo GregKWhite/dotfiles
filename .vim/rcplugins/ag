@@ -1,3 +1,4 @@
+" vim:ft=vim
 Plugin 'rking/ag.vim'
 
 if executable('ag')
