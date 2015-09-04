@@ -1,0 +1,3 @@
+" Set up the background
+set background=dark
+colorscheme sexy-railscasts-256

@@ -1,0 +1,4 @@
+Plugin 'kien/ctrlp.vim'
+
+" Prevent CtrlP from closing NERDTree
+let g:ctrlp_dont_split = 'NERD'

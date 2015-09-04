@@ -1,283 +1,32 @@
-set nocompatible
-filetype off
+" Want to set this before any others
+let mapleader = "\<Space>"
 
-" set the runtime path to include Vundle
+function! s:SourceConfigFilesIn(directory)
+  let directory_splat = '~/.vim/' . a:directory . '/*'
+  for config_file in split(glob(directory_splat), '\n')
+  	if filereadable(config_file)
+  		execute 'source' config_file
+  	endif
+  endfor
+endfunction
+
+" Setup Vundle to manage my bundles
+"-----------------------------------
+filetype off " required!
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'ggreer/the_silver_searcher'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-fireplace'
-Plugin 'ervandew/supertab'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'rking/ag.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'christoomey/vim-sort-motion'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'guns/vim-clojure-static'
-Plugin 'luochen1990/rainbow'
-Plugin 'guns/vim-clojure-highlight'
-Plugin 'sirver/ultisnips'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'guns/vim-sexp'
-Plugin 'Raimondi/delimitMate'
-Plugin 'ngmy/vim-rubocop'
-Plugin 'suan/vim-instant-markdown'
 
-
-let g:rspec_command = "Dispatch rspec {spec}"
+" Plugins are each listed in their own file. Loop and
+" source ftw
+"----------------------------------------------------------------
+call s:SourceConfigFilesIn('rcplugins')
 
 call vundle#end()
-filetype plugin indent on
-
-" Set up the background
-set background=dark
-colorscheme sexy-railscasts-256
-
-" Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
-" Enables matchit.vim - used by rubyblock plugin
-runtime macros/matchit.vim
-" Make vim reload files on change (useful when swapping branches)
-set autoread
-" Enhance command-line completion
-set wildmenu
-" Allow cursor keys in insert mode
-set esckeys
-" Allow backspace in insert mode
-set backspace=indent,eol,start
-" Add the g flag to search/replace by default
-set gdefault
-" Use UTF-8 without BOM
-set encoding=utf-8 nobomb
-" Don’t create backups when editing files in certain directories
-set nobackup
-set noswapfile
-" Respect modeline in files
-set modeline
-set modelines=4
-" Enable line numbers
-set relativenumber
-set number
-" Enable syntax highlighting
+filetype plugin indent on " required!
 syntax on
-" Make tabs as wide as two spaces
-set tabstop=2
-set shiftwidth=2
-set shiftround
-set expandtab
-" Show “invisible” characters
-set lcs=trail:·,tab:▸\ ,
-set list
-" Highlight searches
-set hlsearch
-" Ignore case of searches unless a capital letter is detected.
-" If capital is detected, it becomes case sensitive
-set ignorecase
-set smartcase
-" Highlight dynamically as pattern is typed
-set incsearch
-" Always show status line
-set laststatus=2
-" Disable error bells
-set noerrorbells
-" Don’t reset cursor to start of line when moving around.
-set nostartofline
-" Show the cursor position
-highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%101v', 100)
-" highlight ColorColumn ctermbg=88
-" let &colorcolumn=101
-" Highlight words past 100 chars
-" Don’t show the intro message when starting Vim
-" set shortmess=atI
-" Show the current mode
-set showmode
-" Show the filename in the window titlebar
-set title
-" Show the (partial) command as it’s being typed
-set showcmd
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
-" Set the diff opt to be vertical because it's more intuitive
-set diffopt=vertical
-" Turn off wrapping
-set nowrap
-" Turn off automatic comment insertion
-set formatoptions-=cro
 
-" Set up the status line to show changes, name, readonly, line count
-:set statusline=%{fugitive#statusline()}
-:set statusline+=%#TODO#
-:set statusline+=%m
-:set statusline+=%*
-:set statusline+=\ %f
-:set statusline+=\ %y
-:set statusline+=\ %r
-:set statusline+=%=
-:set statusline+=Current:\ %4l:%c\ Total:\ %4L
-
-" CUSTOM COMMANDS
-let mapleader="\<Space>"
-command! E e
-command! Gca :!git add . && git commit --amend<CR>
-command! Gmd :!git merge develop<CR>
-command! Gpd :!git stash && git checkout develop && git pull && git checkout -<CR>
-command! Gri :!git rebase -i develop<CR>
-command! PC :PluginClean
-command! PI :PluginInstall
-command! PL :PluginList
-command! Q q
-command! QA qall
-command! Qall qall
-command! Sl :!git stash list<CR>
-command! Sp :!git stash pop<CR>
-command! Ss :!git stash<CR>
-nnoremap ; :
-nnoremap <C-l> :!clear<CR><CR>
-nnoremap <C-/> :noh<CR>
-nnoremap <leader><leader> <c-^>
-nnoremap <leader>a :A<CR>
-nnoremap <leader>bp Obinding.pry<ESC>:w<ESC>
-nnoremap <leader>ca :!git ca
-nnoremap <leader>c- :!git checkout -<CR><CR>
-nnoremap <leader>cb ^<kDIVIDE>do\ \|<CR>cw{<ESC>JA }<ESC>jddk
-nnoremap <leader>cd :!git stash && git checkout develop<CR>
-nnoremap <leader>ci j^y$k^hpa <ESC>j2ddk
-nnoremap <leader>co :!git checkout 
-nnoremap <leader>df :/def\ \(self\.\)\?\(<c-r>=expand("<cword>")<cr>\)<CR><ESC>
-nnoremap <leader>dg :Ag! def\ \(self\.\)\?\(<c-r>=expand("<cword>")<cr>\)<CR><ESC>
-nnoremap <leader>dt :call DiffUseTarget()<CR>
-nnoremap <leader>dm :call DiffUseMerge()<CR>
-nnoremap <leader>fb :Ag! binding.pry<CR>
-nnoremap <leader>ga :!git add .<CR><CR>
-nnoremap <leader>gc :!git commit<CR>
-nnoremap <leader>gd :!git diff<CR>
-nnoremap <leader>gl :!git cl<CR>
-nnoremap <leader>gp :!git push
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gw :!git commit -m "WIP"<CR><CR>
-nnoremap <leader>ja :!java %:r <C-r>a<CR>
-nnoremap <leader>jc :Dispatch javac %<CR>
-nnoremap <leader>jd :Dispatch java %:r 
-nnoremap <leader>jr :!java %:r 
-nnoremap <leader>lr :!lein run<CR>
-nnoremap <leader>m :Emodel 
-nnoremap <leader>na O<C-[>j:w<ESC>
-nnoremap <leader>nb o<C-[>k:w<ESC>
-nnoremap <leader>o :CtrlP<CR>
-nnoremap <leader>sc :!git save
-nnoremap <leader>t :NERDTreeToggle<CR>
-nnoremap <leader>va :AV<CR>
-nnoremap <leader>vo :vs#<CR>
-nnoremap <leader>vr :e ~/.vimrc<CR>
-nnoremap <leader>vv :vs ~/.vimrc<CR>
-nnoremap <leader>vs :UltiSnipsEdit<CR>
-noremap <leader>sg :%s/
-noremap <leader>sl :s/
-noremap <leader>w :w<CR>
-vnoremap <leader>i :call ChangeToPercentI()<CR>
-vnoremap <leader>w :call ChangeToPercentW()<CR>
-
-autocmd! bufwritepost .vimrc source %
-
-" Script to swap to the alternate file, vertically split, and reopen prev file
-function! OpenAlternateWindowSplit()
-  :e#
-  :vsplit
-  :e#
-endfunction
-
-" Open the vimrc in a vertical split
-function! OpenVimrcSplit()
-  :e ~/.vimrc
-  :vsplit
-  :e#
-endfunction
-
-" Functions to take the diff from target or merge, respectively
-function! DiffUseTarget()
-  :diffget //2
-  :diffupdate
-endfunction
-
-function! DiffUseMerge()
-  :diffget //3
-  :diffupdate
-endfunction
-
-" Changes array of symbols to %i
-function! ChangeToPercentI() range
-  :call ChangeArrayToPercent("i", ":", a:firstline, a:lastline)
-endfunction
-
-" Change array from array of strings to %w
-function! ChangeToPercentW() range
-  :call ChangeArrayToPercent("w", "'", a:firstline, a:lastline)
-endfunction
-
-function! ChangeArrayToPercent(Type, Identifier, Firstline, Lastline)
-  :execute a:Firstline . "," . a:Lastline . ('s/' . a:Identifier . '//e')
-  :execute a:Firstline . "," . a:Lastline . 's/,//e'
-  :execute a:Firstline . "," . a:Lastline . ('s/\[/%' . a:Type . '(/e')
-  :execute a:Firstline . "," . a:Lastline . 's/]/)/e'
-  :noh
-endfunction
-
-" Removes trailing whitespace
-function! RemoveWhitespace()
-  :%s/\s\+$//e
-endfunction
-
-" Use the silver searcher
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-  set grepformat=%f:%l:%c%m
-  nmap <silent> <RIGHT> :cnext<CR>
-  nmap <silent> <LEFT> :cprev<CR>
-  command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-  nnoremap K :Ag!<SPACE><cword><CR>
-  nnoremap \ :Ag!<SPACE>
-
-  " Use ag in CtrlP for files
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
-  let g:ag_highlight=1
-end
-
-" set up persistent undo so that changes can be undone after saving
-if has('persistent_undo')
-  set undofile
-  set undodir=$HOME/.vim/undo
-endif
-
-" Enable rainbow parenthesis
-let g:rainbow_active = 1
-let g:rainbow_conf = {
-      \ 'ctermfgs': ['darkblue', 'darkyellow', 'darkred', 'darkgreen'],
-      \ }
-
-let g:UltiSnipsSnippetDirectories=["my_snips"]
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
-let g:UltiSnipsEditSplit="context"
-let g:UltiSnipsSnippetsDir="~/.vim/my_snips"
-
-let delimitMate_quotes = "\" ' | "
-
-" Prevent CtrlP from closing NERDTree
-let g:ctrlp_dont_split = 'NERD'
+" Vimrc is split accross multiple files, so loop over
+" and source each
+"---------------------------------------------------------------------
+call s:SourceConfigFilesIn('rcfiles')

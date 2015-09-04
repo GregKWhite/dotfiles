@@ -1,0 +1,47 @@
+" Script to swap to the alternate file, vertically split, and reopen prev file
+function! OpenAlternateWindowSplit()
+  :e#
+  :vsplit
+  :e#
+endfunction
+
+" Open the vimrc in a vertical split
+function! OpenVimrcSplit()
+  :e ~/.vimrc
+  :vsplit
+  :e#
+endfunction
+
+" Functions to take the diff from target or merge, respectively
+function! DiffUseTarget()
+  :diffget //2
+  :diffupdate
+endfunction
+
+function! DiffUseMerge()
+  :diffget //3
+  :diffupdate
+endfunction
+
+" Changes array of symbols to %i
+function! ChangeToPercentI() range
+  :call ChangeArrayToPercent("i", ":", a:firstline, a:lastline)
+endfunction
+
+" Change array from array of strings to %w
+function! ChangeToPercentW() range
+  :call ChangeArrayToPercent("w", "'", a:firstline, a:lastline)
+endfunction
+
+function! ChangeArrayToPercent(Type, Identifier, Firstline, Lastline)
+  :execute a:Firstline . "," . a:Lastline . ('s/' . a:Identifier . '//e')
+  :execute a:Firstline . "," . a:Lastline . 's/,//e'
+  :execute a:Firstline . "," . a:Lastline . ('s/\[/%' . a:Type . '(/e')
+  :execute a:Firstline . "," . a:Lastline . 's/]/)/e'
+  :noh
+endfunction
+
+" Removes trailing whitespace
+function! RemoveWhitespace()
+  :%s/\s\+$//e
+endfunction

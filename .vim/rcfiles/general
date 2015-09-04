@@ -1,0 +1,78 @@
+" Use the OS clipboard by default (on versions compiled with `+clipboard`)
+set clipboard=unnamed
+" Enables matchit.vim - used by rubyblock plugin
+runtime macros/matchit.vim
+" Make vim reload files on change (useful when swapping branches)
+set autoread
+" Enhance command-line completion
+set wildmenu
+" Allow cursor keys in insert mode
+set esckeys
+" Allow backspace in insert mode
+set backspace=indent,eol,start
+" Add the g flag to search/replace by default
+set gdefault
+" Use UTF-8 without BOM
+set encoding=utf-8 nobomb
+" Don’t create backups when editing files in certain directories
+set nobackup
+set noswapfile
+" Respect modeline in files
+set modeline
+set modelines=4
+" Enable line numbers
+set relativenumber
+set number
+" Enable syntax highlighting
+syntax on
+" Make tabs as wide as two spaces
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
+" Show “invisible” characters
+set lcs=trail:·,tab:▸\ ,
+set list
+" Highlight searches
+set hlsearch
+" Ignore case of searches unless a capital letter is detected.
+" If capital is detected, it becomes case sensitive
+set ignorecase
+set smartcase
+" Highlight dynamically as pattern is typed
+set incsearch
+" Always show status line
+set laststatus=2
+" Disable error bells
+set noerrorbells
+" Don’t reset cursor to start of line when moving around.
+set nostartofline
+" Show the cursor position
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%101v', 100)
+" highlight ColorColumn ctermbg=88
+" let &colorcolumn=101
+" Highlight words past 100 chars
+" Don’t show the intro message when starting Vim
+" set shortmess=atI
+" Show the current mode
+set showmode
+" Show the filename in the window titlebar
+set title
+" Show the (partial) command as it’s being typed
+set showcmd
+" Start scrolling three lines before the horizontal window border
+set scrolloff=3
+" Set the diff opt to be vertical because it's more intuitive
+set diffopt=vertical
+" Turn off wrapping
+set nowrap
+" Turn off automatic comment insertion
+set formatoptions-=cro
+
+" set up persistent undo so that changes can be undone after saving
+if has('persistent_undo')
+  set undofile
+  set undodir=$HOME/.vim/undo
+endif
+

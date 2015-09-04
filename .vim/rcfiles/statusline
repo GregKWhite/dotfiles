@@ -1,0 +1,11 @@
+" Set up the status line to show changes, name, readonly, line count
+:set statusline=%{fugitive#statusline()}
+:set statusline+=%#TODO#
+:set statusline+=%m
+:set statusline+=%*
+:set statusline+=\ %f
+:set statusline+=\ %y
+:set statusline+=\ %r
+:set statusline+=%=
+:set statusline+=Current:\ %4l:%c\ Total:\ %4L
+
