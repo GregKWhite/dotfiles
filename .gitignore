@@ -1,1 +1,4 @@
 /.vim/bundle/
+/.vim/plugin/
+/.vim/eclim/
+.DS_Store
