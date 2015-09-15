@@ -77,3 +77,7 @@ if has('persistent_undo')
   set undodir=$HOME/.vim/undo
 endif
 
+" Make vim view coffeescript files as javascript
+au BufRead,BufNewFile *.coffee setfiletype javascript
+au BufRead,BufNewFile *.js.coffee.erb setfiletype javascript
+

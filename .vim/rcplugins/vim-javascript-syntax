@@ -1,0 +1,2 @@
+" vim:ft=vim
+Plugin 'jelera/vim-javascript-syntax'
