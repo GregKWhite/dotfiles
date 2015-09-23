@@ -1,5 +1,6 @@
 [core]
 	editor = vim
+  excludesfile = ~/.gitignore
 [push]
 	default = current
 [user]
@@ -10,6 +11,7 @@
 [alias]
 	a = add -A
   cl = log --name-only --pretty=colored --author Greg
+  clg = log --graph --decorate --author Greg
   cm = commit -m
   co = checkout
   cod = checkout develop

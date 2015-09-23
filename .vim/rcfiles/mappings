@@ -13,6 +13,7 @@ command! Qall qall
 command! Sl :!git stash list<CR>
 command! Sp :!git stash pop<CR>
 command! Ss :!git stash<CR>
+inoremap <C-[> <ESC>:w<CR>
 nnoremap ; :
 nnoremap <C-l> :!clear<CR><CR>
 nnoremap <C-/> :noh<CR>
