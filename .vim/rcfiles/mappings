@@ -37,7 +37,7 @@ nnoremap <leader>gl :!git cl<CR>
 nnoremap <leader>gp :!git push
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gw :!git commit -m "WIP"<CR><CR>
-nnoremap <leader>ja :!java %:r <C-r>a<CR>
+nnoremap <leader>ja :Dispatch javac *.java<CR>
 nnoremap <leader>jc :Dispatch javac %<CR>
 nnoremap <leader>jd :Dispatch java %:r 
 nnoremap <leader>jr :!java %:r 
