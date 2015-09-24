@@ -46,3 +46,16 @@ endfunction
 function! RemoveWhitespace()
   :%s/\s\+$//e
 endfunction
+
+" Removes the god awful formatting Leinecker uses in CS2...
+function! RemoveAwfulFormatting()
+  :%s/\t/  
+  :%s/\s*$/
+  :%s/( /(
+  :%s/ )/)
+  :%s/return(\(.*\));/return \1;
+  " Attempts to remove the stupid Hungarian Notation. Note: it'll have to be
+  " done for methods manually, as well as for the declaration of the property
+  " itself
+  :%s/m_n\?/this\./
+endfunction
