@@ -37,18 +37,13 @@ nnoremap <leader>gd :!git diff<CR>
 nnoremap <leader>gl :!git cl<CR>
 nnoremap <leader>gp :!git push
 nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gw :!git commit -m "WIP"<CR><CR>
-nnoremap <leader>ja :!java %:r <C-r>a<CR>
-nnoremap <leader>jc :Dispatch javac %<CR>
-nnoremap <leader>jd :Dispatch java %:r 
-nnoremap <leader>jr :!java %:r 
-nnoremap <leader>lr :!lein run<CR>
+nnoremap <leader>gw :!git add . && git commit -m "WIP"<CR><CR>
 nnoremap <leader>m :Emodel 
 nnoremap <leader>na O<C-[>j:w<ESC>
 nnoremap <leader>nb o<C-[>k:w<ESC>
 nnoremap <leader>o :CtrlP<CR>
 nnoremap <leader>sc :!git save
-nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>nt :NERDTreeToggle<CR>
 nnoremap <leader>va :AV<CR>
 nnoremap <leader>vo :vs#<CR>
 nnoremap <leader>vr :e ~/.vimrc<CR>

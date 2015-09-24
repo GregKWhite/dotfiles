@@ -4,5 +4,5 @@ Plugin 'luochen1990/rainbow'
 " Enable rainbow parenthesis
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-      \ 'ctermfgs': ['darkblue', 'darkyellow', 'darkred', 'darkgreen'],
+      \ 'ctermfgs': ['darkyellow', 'darkred', 'darkblue'],
       \ }
