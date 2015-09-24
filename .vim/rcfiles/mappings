@@ -30,7 +30,7 @@ nnoremap <leader>df :/def\ \(self\.\)\?\(<c-r>=expand("<cword>")<cr>\)<CR><ESC>
 nnoremap <leader>dg :Ag! def\ \(self\.\)\?\(<c-r>=expand("<cword>")<cr>\)<CR><ESC>
 nnoremap <leader>dt :call DiffUseTarget()<CR>
 nnoremap <leader>dm :call DiffUseMerge()<CR>
-nnoremap <leader>fb :Ag! binding.pry<CR>
+nnoremap <leader>fb :Ag! binding.pry --ignore-dir vendor --ignore-dir tmp --ignore-dir tsv<CR>
 nnoremap <leader>ga :!git add .<CR><CR>
 nnoremap <leader>gc :!git commit<CR>
 nnoremap <leader>gd :!git diff<CR>
