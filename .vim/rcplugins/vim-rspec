@@ -5,6 +5,6 @@ Plugin 'thoughtbot/vim-rspec'
 map <leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
-map <Leader>as :call RunAllSpecs()<CR>
+map <Leader>sa :call RunAllSpecs()<CR>
 let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
 let g:spec_runner = "os_x_iterm2"

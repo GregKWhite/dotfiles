@@ -16,6 +16,7 @@ fi
 # source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 alias a='ls -Gfa'
+alias b='bundle install'
 alias c='clear'
 alias cdd='cd ~/dotfiles'
 alias cds='cd ~/google\ drive/ucf/fall\ 2015'
@@ -53,7 +54,9 @@ alias pctags="`brew --prefix`/bin/ctags -R --exclude=.git --exclude=log --exclud
 alias please='sudo $(history -p !!)'
 alias pd='git pull'
 alias pu='git push'
-alias rc='rubocop -f clang'
+alias rc='zeus console'
+alias rcs='zeus console --sandbox'
+alias rcp='rubocop -f clang'
 alias rd='rubodiff'
 alias rs='zeus test '
 alias s='git status'
@@ -63,6 +66,7 @@ alias tls='tmux ls'
 alias t="TERM=screen-256color-bce tmux"
 alias te='teamocil --here edge'
 alias tp='teamocil --here push'
+alias tu='teamocil uniticket'
 alias v='vim'
 alias vz='vim ~/.zshrc && source ~/.zshrc'
 export TERM='xterm-256color'

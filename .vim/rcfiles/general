@@ -69,7 +69,7 @@ set diffopt=vertical
 " Turn off wrapping
 set nowrap
 " Turn off automatic comment insertion
-set formatoptions-=cro
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " set up persistent undo so that changes can be undone after saving
 if has('persistent_undo')
