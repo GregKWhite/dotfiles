@@ -2,3 +2,5 @@
 /.vim/plugin/
 /.vim/eclim/
 .DS_Store
+tags
+.pryrc

@@ -44,9 +44,13 @@ nnoremap <leader>nb o<C-[>k:w<ESC>
 nnoremap <leader>o :CtrlP<CR>
 nnoremap <leader>sc :!git save
 nnoremap <leader>nt :NERDTreeToggle<CR>
+nnoremap <leader>tn :tabnext<CR>
+nnoremap <leader>tp :tabprevious<CR>
+nnoremap <leader>tc :tabnew 
 nnoremap <leader>va :AV<CR>
 nnoremap <leader>vo :vs#<CR>
 nnoremap <leader>vr :e ~/.vimrc<CR>
+nnoremap <leader>vn :tabnew ~/Google\ Drive/notes.markdown<CR>
 nnoremap <leader>vv :vs ~/.vimrc<CR>
 nnoremap <leader>vs :UltiSnipsEdit<CR>
 noremap <leader>sg :%s/
