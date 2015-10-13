@@ -2,3 +2,7 @@ tags
 .DS_Store
 *.class
 .git/
+vendor/
+tsv/
+tmp/
+bin/
