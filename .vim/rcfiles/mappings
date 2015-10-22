@@ -28,6 +28,7 @@ nnoremap <leader>ci j^y$k^hpa <ESC>j2ddk
 nnoremap <leader>co :!git checkout 
 nnoremap <leader>df :/def\ \(self\.\)\?\(<c-r>=expand("<cword>")<cr>\)<CR><ESC>
 nnoremap <leader>dg :Ag! def\ \(self\.\)\?\(<c-r>=expand("<cword>")<cr>\)<CR><ESC>
+nnoremap <leader>do :only<CR>
 nnoremap <leader>dt :call DiffUseTarget()<CR>
 nnoremap <leader>dm :call DiffUseMerge()<CR>
 nnoremap <leader>fb :Ag! binding.pry --ignore-dir vendor --ignore-dir tmp --ignore-dir tsv<CR>
@@ -35,6 +36,7 @@ nnoremap <leader>ft :Ag! TODO app<CR>
 nnoremap <leader>ga :!git add .<CR><CR>
 nnoremap <leader>gc :!git commit<CR>
 nnoremap <leader>gd :!git diff<CR>
+nnoremap <leader>gdm :Gdiff<CR>
 nnoremap <leader>gl :!git cl<CR>
 nnoremap <leader>gp :!git push
 nnoremap <leader>gs :Gstatus<CR>
