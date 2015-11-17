@@ -59,3 +59,8 @@ function! RemoveAwfulFormatting()
   " itself
   :%s/m_n\?/this\./
 endfunction
+
+function! FixFile()
+  :RuboCop -a
+  normal! ''
+endfunction

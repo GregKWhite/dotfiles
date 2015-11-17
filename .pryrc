@@ -3,7 +3,19 @@ require 'rails/console/app'
 extend Rails::ConsoleMethods
 puts 'Rails Console Helpers loaded'
 
-def acc(id = 1)
+# Set the logger level to debug by default
+Rails.logger = Logger.new(STDOUT)
+Rails.logger.level = 0
+
+def enable_logger
+  Rails.logger.level = 0
+end
+
+def disable_logger
+  Rails.logger.level = 4
+end
+
+def acc
   a = Account.find_by(account_name: 'Test Account: Greg')
   a.switch
   a
@@ -23,4 +35,8 @@ end
 
 def r
   reload!
+end
+
+def enable_pry
+  ENV['DISABLE_PRY'] = nil
 end

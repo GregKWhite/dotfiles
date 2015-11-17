@@ -28,6 +28,7 @@ nnoremap <leader>ci j^y$k^hpa <ESC>j2ddk
 nnoremap <leader>co :!git checkout 
 nnoremap <leader>df :/def\ \(self\.\)\?\(<c-r>=expand("<cword>")<cr>\)<CR><ESC>
 nnoremap <leader>dg :Ag! def\ \(self\.\)\?\(<c-r>=expand("<cword>")<cr>\)<CR><ESC>
+nnoremap <leader>dv df=x<CR>
 nnoremap <leader>do :only<CR>
 nnoremap <leader>dt :call DiffUseTarget()<CR>
 nnoremap <leader>dm :call DiffUseMerge()<CR>
@@ -41,6 +42,7 @@ nnoremap <leader>gl :!git cl<CR>
 nnoremap <leader>gp :!git push
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gw :!git add . && git commit -m "WIP"<CR><CR>
+nnoremap <leader>ff :call FixFile()<CR>
 nnoremap <leader>m :Emodel 
 nnoremap <leader>na O<C-[>j:w<ESC>
 nnoremap <leader>nb o<C-[>k:w<ESC>
