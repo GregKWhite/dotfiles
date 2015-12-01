@@ -1,0 +1,4 @@
+" vim:ft=vim
+Plugin 'alvan/vim-closetag'
+
+let g:closetag_filenames='*.html,*.html.erb'
