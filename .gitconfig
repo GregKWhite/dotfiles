@@ -1,3 +1,5 @@
+[init]
+  templatedir = ~/.git_templates
 [core]
 	editor = vim
   excludesfile = ~/.gitignore
