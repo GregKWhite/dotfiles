@@ -64,3 +64,18 @@ function! FixFile()
   :RuboCop -a
   normal! ''
 endfunction
+
+function! RemapMovement()
+  if !exists('g:remapped_movement')
+    let g:remapped_movement = 0
+  endif
+  if g:remapped_movement == 0
+    let g:remapped_movement = 1
+    nnoremap j +
+    nnoremap k -
+  elseif g:remapped_movement == 1
+    let g:remapped_movement = 0
+    nnoremap j j
+    nnoremap k k
+  endif
+endfunction

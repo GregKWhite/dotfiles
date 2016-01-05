@@ -1,4 +1,6 @@
 " vim:ft=vim
 " Set up the background
-set background=dark
+" set background=dark
 colorscheme sexy-railscasts-256
+" colorscheme darcula
+" colorscheme vividchalk

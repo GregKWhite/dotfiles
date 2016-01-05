@@ -85,3 +85,13 @@ au BufRead,BufNewFile *.js.coffee.erb setfiletype javascript
 au BufRead,BufNewFile *.md setlocal textwidth=80
 au BufRead,BufNewFile *.markdown setlocal textwidth=80
 
+" Make ? and ! part of words in Ruby
+autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
+autocmd FileType ruby,eruby,yaml setlocal iskeyword+=!
+
+" emacs-like beginning and end of line
+imap <c-e> <c-o>$
+imap <c-a> <c-o>^
+
+" Remap j and k to + and -
+call RemapMovement()

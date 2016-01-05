@@ -51,6 +51,7 @@ alias sps='git stash show -p stash@"{0}"'
 alias ss='git stash'
 alias sp='git stash pop'
 alias gs='git status && echo "Use s!!"'
+alias grd='git rebase -i develop'
 alias l='git cl'
 alias le='lein exec'
 alias lr='lein repl'
@@ -78,7 +79,6 @@ alias tu='teamocil uniticket'
 alias v='vim'
 alias vn='vim ~/Google\ Drive/notes.markdown'
 alias vz='vim ~/.zshrc && source ~/.zshrc'
-export TERM='xterm-256color'
 
 # use vi mode
 export KEYTIMEOUT=1
@@ -86,5 +86,7 @@ bindkey -v
 bindkey '^p' up-history
 bindkey '^n' down-history
 bindkey "^R" history-incremental-search-backward
+bindkey "^S" history-incremental-search-forward
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export TERM='xterm-256color'
