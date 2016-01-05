@@ -9,6 +9,7 @@ command! PI :PluginInstall
 command! PL :PluginList
 inoremap <C-[> <ESC>:w<CR>
 nnoremap ; :
+nnoremap <c-]> :execute 'tjump' expand('<cword>')<CR>
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>a :A<CR>
 nnoremap <leader>bp Obinding.pry<ESC>:w<ESC>

@@ -88,6 +88,8 @@ au BufRead,BufNewFile *.markdown setlocal textwidth=80
 " Make ? and ! part of words in Ruby
 autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
 autocmd FileType ruby,eruby,yaml setlocal iskeyword+=!
+autocmd FileType ruby,eruby,yaml setlocal iskeyword+=:
+
 
 " emacs-like beginning and end of line
 imap <c-e> <c-o>$
