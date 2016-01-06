@@ -75,7 +75,17 @@ function! RemapMovement()
     nnoremap k -
   elseif g:remapped_movement == 1
     let g:remapped_movement = 0
-    nnoremap j j
-    nnoremap k k
+    nnoremap j gj
+    nnoremap k gk
+  endif
+endfunction
+
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
   endif
 endfunction

@@ -97,3 +97,12 @@ imap <c-a> <c-o>^
 
 " Remap j and k to + and -
 call RemapMovement()
+
+" Remove trailing whitespace on save for ruby files
+au BufWritePre *.rb :%s/\s\+$//e
+
+" Wrap the quickfix window
+autocmd FileType qf setlocal wrap linebreak
+
+" Execute macro in q
+map Q @q

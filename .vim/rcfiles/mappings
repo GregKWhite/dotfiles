@@ -28,6 +28,7 @@ nnoremap <leader>dm :call DiffUseMerge()<CR>
 nnoremap <leader>fb :Ag! binding.pry --ignore-dir vendor --ignore-dir tmp --ignore-dir tsv<CR>
 nnoremap <leader>ft :Ag! TODO app<CR>
 nnoremap <leader>ga :!git add .<CR><CR>
+nnoremap <leader>gb :Gbrowse<CR>
 nnoremap <leader>gc :!git commit<CR>
 nnoremap <leader>gd :!git diff<CR>
 nnoremap <leader>gdm :Gdiff<CR>
@@ -41,6 +42,7 @@ nnoremap <leader>na O<C-[>j:w<ESC>
 nnoremap <leader>nb o<C-[>k:w<ESC>
 nnoremap <leader>o :CtrlP<CR>
 nnoremap <leader>rm :call RemapMovement()<CR>
+nnoremap <leader>mf :call RenameFile()<CR>
 nnoremap <leader>sc :!git save
 nnoremap <leader>nt :NERDTreeToggle<CR>
 nnoremap <leader>tn :tabnext<CR>
