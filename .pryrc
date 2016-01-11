@@ -40,3 +40,20 @@ end
 def enable_pry
   ENV['DISABLE_PRY'] = nil
 end
+
+def randomize_chore_name(feed)
+  feed.update(campaign_identifier: (feed.campaign_identifier[0...-8] << (0...8).map { (65 + rand(26)).chr }.join))
+end
+
+def increment_campaign(feed)
+  name = feed.campaign_identifier
+  num = name[/\d+$/].to_i + 1
+  feed.update!(campaign_identifier: name.gsub(/\d+$/, num.to_s))
+end
+
+def rerun
+  reload!
+  feed = Feed.last
+  randomize_chore_name(feed)
+  feed.run('account_download' => true)
+end

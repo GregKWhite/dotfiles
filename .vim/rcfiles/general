@@ -63,7 +63,7 @@ set title
 " Show the (partial) command as it’s being typed
 set showcmd
 " Start scrolling three lines before the horizontal window border
-set scrolloff=3
+set scrolloff=6
 " Set the diff opt to be vertical because it's more intuitive
 set diffopt=vertical
 " Turn off wrapping
@@ -88,7 +88,7 @@ au BufRead,BufNewFile *.markdown setlocal textwidth=80
 " Make ? and ! part of words in Ruby
 autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
 autocmd FileType ruby,eruby,yaml setlocal iskeyword+=!
-autocmd FileType ruby,eruby,yaml setlocal iskeyword+=:
+" autocmd FileType ruby,eruby,yaml setlocal iskeyword+=:
 
 
 " emacs-like beginning and end of line
@@ -106,3 +106,6 @@ autocmd FileType qf setlocal wrap linebreak
 
 " Execute macro in q
 map Q @q
+
+" Doesn't store variables in sessions
+set ssop-=options
