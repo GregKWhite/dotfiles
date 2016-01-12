@@ -3,4 +3,5 @@ nnoremap <leader>jc :Dispatch javac %<CR>
 nnoremap <leader>jd :Dispatch java %:r 
 nnoremap <leader>jr :!java %:r 
 
-inoremap { {<CR>}<Esc>O
+inoremap {<CR> {<CR>}<Esc>O
+inoremap {<SPACE> { }<Esc>hi
