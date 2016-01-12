@@ -64,3 +64,47 @@ function! FixFile()
   :RuboCop -a
   normal! ''
 endfunction
+
+function! RemapMovement()
+  if !exists('g:remapped_movement')
+    let g:remapped_movement = 0
+  endif
+  if g:remapped_movement == 0
+    let g:remapped_movement = 1
+    nnoremap j +
+    nnoremap k -
+  elseif g:remapped_movement == 1
+    let g:remapped_movement = 0
+    nnoremap j gj
+    nnoremap k gk
+  endif
+endfunction
+
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+
+if !exists( "*RubyEndToken" )
+  function RubyEndToken()
+    let current_line = getline( '.' )
+    let braces_at_end = '{\s*\(|\(,\|\s\|\w\)*|\s*\)\?$'
+    let stuff_without_do = '^\s*\(class\|if\|unless\|begin\|case\|for\|module\|while\|until\|def\)'
+      let with_do = 'do\s*\(|\(,\|\s\|\w\)*|\s*\)\?$'
+
+      if match(current_line, braces_at_end) >= 0
+        return "\<CR>}\<C-O>O"
+      elseif match(current_line, stuff_without_do) >= 0
+        return "\<CR>end\<C-O>O"
+      elseif match(current_line, with_do) >= 0
+        return "\<CR>end\<C-O>O"
+      else
+        return "\<CR>"
+      endif
+    endfunction
+endif

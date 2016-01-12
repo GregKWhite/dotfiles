@@ -7,16 +7,9 @@ command! Gri :!git rebase -i develop<CR>
 command! PC :PluginClean
 command! PI :PluginInstall
 command! PL :PluginList
-command! Q q
-command! QA qall
-command! Qall qall
-command! Sl :!git stash list<CR>
-command! Sp :!git stash pop<CR>
-command! Ss :!git stash<CR>
 inoremap <C-[> <ESC>:w<CR>
 nnoremap ; :
-nnoremap <C-l> :!clear<CR><CR>
-nnoremap <C-/> :noh<CR>
+nnoremap <c-]> :execute 'tjump' expand('<cword>')<CR>
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>a :A<CR>
 nnoremap <leader>bp Obinding.pry<ESC>:w<ESC>
@@ -35,6 +28,7 @@ nnoremap <leader>dm :call DiffUseMerge()<CR>
 nnoremap <leader>fb :Ag! binding.pry --ignore-dir vendor --ignore-dir tmp --ignore-dir tsv<CR>
 nnoremap <leader>ft :Ag! TODO app<CR>
 nnoremap <leader>ga :!git add .<CR><CR>
+nnoremap <leader>gb :Gbrowse<CR>
 nnoremap <leader>gc :!git commit<CR>
 nnoremap <leader>gd :!git diff<CR>
 nnoremap <leader>gdm :Gdiff<CR>
@@ -47,6 +41,8 @@ nnoremap <leader>m :Emodel
 nnoremap <leader>na O<C-[>j:w<ESC>
 nnoremap <leader>nb o<C-[>k:w<ESC>
 nnoremap <leader>o :CtrlP<CR>
+nnoremap <leader>rm :call RemapMovement()<CR>
+nnoremap <leader>mf :call RenameFile()<CR>
 nnoremap <leader>sc :!git save
 nnoremap <leader>nt :NERDTreeToggle<CR>
 nnoremap <leader>tn :tabnext<CR>

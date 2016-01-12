@@ -36,6 +36,12 @@ before do
 end
 endsnippet
 
+snippet aft
+after do
+  $1
+end
+endsnippet
+
 snippet con
 context '$1' do
   $2
@@ -55,6 +61,24 @@ endsnippet
 snippet letd
 let(:$1) do
   $2
+end
+endsnippet
+
+snippet exp
+expect($1)
+endsnippet
+
+snippet expb
+expect { $1 }
+endsnippet
+
+snippet "subj?e?c?t?" "subject { ... }"
+subject { $1 }
+endsnippet
+
+snippet "subb" "subject do ... end"
+subject do
+  $1
 end
 endsnippet
 
