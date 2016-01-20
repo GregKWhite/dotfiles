@@ -96,7 +96,7 @@ imap <c-e> <c-o>$
 imap <c-a> <c-o>^
 
 " Remap j and k to + and -
-call RemapMovement()
+" call RemapMovement()
 
 " Remove trailing whitespace on save for ruby files
 au BufWritePre *.rb :%s/\s\+$//e
