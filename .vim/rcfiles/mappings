@@ -40,9 +40,13 @@ nnoremap <leader>ff :call FixFile()<CR>
 nnoremap <leader>m :Emodel 
 nnoremap <leader>na O<C-[>j:w<ESC>
 nnoremap <leader>nb o<C-[>k:w<ESC>
-nnoremap <leader>o :CtrlP<CR>
+nnoremap <leader>oc :CtrlP app/controllers<CR>
+nnoremap <leader>om :CtrlP app/models<CR>
+nnoremap <leader>op :CtrlP app/poros<CR>
+nnoremap <leader>or :e config/routes.rb<CR>
+nnoremap <leader>os :CtrlP spec/<CR>
+nnoremap <leader>ov :CtrlP app/views<CR>
 nnoremap <leader>rm :call RemapMovement()<CR>
-nnoremap <leader>ro :e config/routes.rb<CR>
 nnoremap <leader>mf :call RenameFile()<CR>
 nnoremap <leader>sc :!git save
 nnoremap <leader>nt :NERDTreeToggle<CR>
