@@ -1,2 +1,3 @@
 " vim:ft=vim
-Plugin 'gregkwhite/vim-delete'
+" Plugin 'gregkwhite/vim-delete'
+Plugin 'file:///Users/gregorywhite/vim-delete'

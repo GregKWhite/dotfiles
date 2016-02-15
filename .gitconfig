@@ -25,8 +25,8 @@
 	ui = true
 [alias]
 	a = add -A
-  cl = log --name-only --pretty=colored --author Greg
-  clg = log --graph --decorate --author Greg
+  cl = log --pretty=colored --date=short
+  clg = log --pretty=colored --graph --date=short
   cm = commit -m
   co = checkout
   cod = checkout develop
@@ -34,7 +34,7 @@
   ca = commit --amend --reuse-message HEAD
   save = !sh -c 'export PREV=$(git symbolic-ref HEAD|cut -d/ -f3-) && git checkout -b "$1" && git commit -am "$1" && git checkout "$PREV"' -
 [pretty]
-  colored = format:%C(bold yellow)%h%Creset %s %Cgreen(%cr)
+  colored = format:%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s
 [help]
 	autocorrect = 5
 [rerere]
