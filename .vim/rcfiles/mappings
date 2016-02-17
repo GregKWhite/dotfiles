@@ -37,10 +37,10 @@ nnoremap <leader>gp :!git push
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gw :!git add . && git commit -m "WIP"<CR><CR>
 nnoremap <leader>ff :call FixFile()<CR>
-nnoremap <leader>m :Emodel 
 nnoremap <leader>na O<C-[>j:w<ESC>
 nnoremap <leader>nb o<C-[>k:w<ESC>
 nnoremap <leader>oc :CtrlP app/controllers<CR>
+nnoremap <leader>of :e spec/factories.rb<CR>
 nnoremap <leader>om :CtrlP app/models<CR>
 nnoremap <leader>op :CtrlP app/poros<CR>
 nnoremap <leader>or :e config/routes.rb<CR>
