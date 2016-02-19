@@ -93,3 +93,5 @@ bindkey "^S" history-incremental-search-forward
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export TERM='xterm-256color'
+export PGDATA=/usr/local/var/postgres
+export EDITOR='vim'
