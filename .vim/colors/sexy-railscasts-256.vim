@@ -35,11 +35,11 @@ highlight Identifier                guifg=#6D9CBE ctermfg=73 gui=NONE cterm=NONE
 highlight Include                   guifg=#CC7833 ctermfg=173 gui=NONE cterm=NONE
 highlight PreCondit                 guifg=#CC7833 ctermfg=173 gui=NONE cterm=NONE
 highlight Keyword                   guifg=#CC7833 ctermfg=173 cterm=NONE
-highlight LineNr                    guifg=#2B2B2B ctermfg=236 ctermbg=233 guibg=#C0C0FF
+highlight LineNr                    guifg=#2B2B2B ctermfg=8 ctermbg=233 guibg=#C0C0FF
 highlight Number                    guifg=#A5C261 ctermfg=107
 highlight VertSplit                 guifg=#383838 guibg=#383838 ctermfg=236 ctermbg=236
 highlight Directory                 guifg=#A5C261 gui=NONE ctermfg=107
-highlight StatusLine                ctermfg=236
+highlight StatusLine                ctermfg=0 ctermbg=8
 
 highlight Pmenu                     guifg=#F6F3E8 guibg=#444444 ctermfg=230 ctermbg=234 gui=NONE
 highlight PmenuSel                  guifg=#000000 guibg=#A5C261 ctermfg=232 ctermbg=64 gui=NONE
@@ -62,7 +62,7 @@ highlight pythonBuiltin             guifg=#6D9CBE ctermfg=73 gui=NONE cterm=NONE
 highlight rubyBlockParameter        guifg=#FFFFFF ctermfg=221
 highlight rubyClass                 guifg=#FFFFFF ctermfg=173
 highlight rubyConstant              guifg=#DA4939 ctermfg=167
-highlight rubyInstanceVariable      guifg=#D0D0FF ctermfg=189
+highlight rubyInstanceVariable      guifg=#D0D0FF ctermfg=33
 highlight rubyInterpolation         guifg=#519F50 ctermfg=107
 highlight rubyLocalVariableOrMethod guifg=#D0D0FF ctermfg=189
 highlight rubyPredefinedConstant    guifg=#DA4939 ctermfg=167
