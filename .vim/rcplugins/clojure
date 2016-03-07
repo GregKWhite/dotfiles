@@ -1,0 +1,3 @@
+" vim:ft=vim
+Plugin 'tpope/vim-classpath'
+Plugin 'clojure-emacs/cider-nrepl'
