@@ -96,3 +96,7 @@ export PATH="$PATH:$HOME/lein" # add lein
 export TERM='xterm-256color'
 export PGDATA=/usr/local/var/postgres
 export EDITOR='vim'
+
+autoload -Uz promptinit
+promptinit
+prompt pure
