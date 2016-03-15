@@ -97,8 +97,5 @@ export TERM='xterm-256color'
 export PGDATA=/usr/local/var/postgres
 export EDITOR='vim'
 
-# Adds newer pure prompt to $fpath
-fpath=( "$HOME/.zfunctions" $fpath )
-
 autoload -U promptinit && promptinit
 prompt pure
