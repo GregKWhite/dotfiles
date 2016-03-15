@@ -108,3 +108,48 @@ if !exists( "*RubyEndToken" )
       endif
     endfunction
 endif
+
+function! ToggleZeusTests()
+  if !exists('g:remapped_zeus')
+    let g:remapped_zeus = 0
+  endif
+  if g:remapped_zeus == 0
+    let g:remapped_zeus = 1
+    let g:rspec_command = "compiler rspec | set makeprg=zeus | Make rspec {spec}"
+  else
+    let g:remapped_zeus = 0
+    let g:rspec_command = "Dispatch rspec {spec}"
+  endif
+endfunction
+
+function! InitializeVariables()
+  " Sets markers for the line above the method declaration
+  " and at the end of the method declaration
+  normal! majmbk
+
+  " Copies the params into register a
+  normal! 0f(l"ayi(
+
+  " move to the end of the definition and 
+  " paste the parameters
+  normal! 'bO
+  normal! "ap
+
+  " Change the format to cache the variables
+  :s/\(\w\+\)\(, \|$\)/@\1 = \1\r
+  normal! ddk=ap
+
+  " Move to the line above the declaration
+  normal! 'aO
+
+  " Write out the attr_accessors for the params
+  normal! Sattr_accessor 
+  normal! "apo
+  normal! k
+
+  " Format the params as symbols
+  :s/\(\w\+\(, \|$\)\)/:\1
+
+  " finally, move back to the end of the declaration
+  normal! 'b
+endfunction

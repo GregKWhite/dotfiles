@@ -48,6 +48,7 @@ nnoremap <leader>or :e config/routes.rb<CR>
 nnoremap <leader>os :CtrlP spec/<CR>
 nnoremap <leader>ov :CtrlP app/views<CR>
 nnoremap <leader>rm :call RemapMovement()<CR>
+nnoremap <leader>ru :call RuboCop -a<CR>
 nnoremap <leader>mf :call RenameFile()<CR>
 nnoremap <leader>sc :!git save
 nnoremap <leader>nt :NERDTreeToggle<CR>
@@ -60,6 +61,9 @@ nnoremap <leader>vr :e ~/.vimrc<CR>
 nnoremap <leader>vn :tabnew ~/Google\ Drive/notes.markdown<CR>
 nnoremap <leader>vv :vs ~/.vimrc<CR>
 nnoremap <leader>vs :UltiSnipsEdit<CR>
+
+nnoremap <leader>iv :call InitializeVariables()<CR>
+
 noremap <leader>sg :%s/
 noremap <leader>sl :s/
 noremap <leader>w :w<CR>
