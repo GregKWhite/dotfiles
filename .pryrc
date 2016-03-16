@@ -30,3 +30,7 @@ end
 def r
   reload!
 end
+
+def c
+  `\e[H\e[2J`
+end
