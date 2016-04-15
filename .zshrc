@@ -60,7 +60,7 @@ alias le='lein exec'
 alias lr='lein repl'
 alias oif='open -a finder .'
 alias md='git merge develop'
-alias pctags="`brew --prefix`/bin/ctags -R --exclude=.git --exclude=log --exclude=tmp --exclude=public --exclude=db *"
+alias pctags="`brew --prefix`/bin/ctags -R --exclude=.git --exclude=log --exclude=tmp --exclude=public --exclude=db --exclude=node *"
 alias please='sudo $(history -p !!)'
 alias pd='git pull'
 alias pu='git push'

@@ -1,0 +1,1 @@
+Plugin 'rhysd/committia.vim'
