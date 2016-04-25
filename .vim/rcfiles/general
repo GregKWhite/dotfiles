@@ -48,14 +48,9 @@ set laststatus=2
 set noerrorbells
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
-" Show the cursor position
+" Highlight the 101st character of each line, alerting that the line is too long
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%101v', 100)
-" highlight ColorColumn ctermbg=88
-" let &colorcolumn=101
-" Highlight words past 100 chars
-" Don’t show the intro message when starting Vim
-" set shortmess=atI
 " Show the current mode
 set showmode
 " Show the filename in the window titlebar
@@ -88,8 +83,14 @@ au BufRead,BufNewFile *.markdown setlocal textwidth=80
 " Make ? and ! part of words in Ruby
 autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
 autocmd FileType ruby,eruby,yaml setlocal iskeyword+=!
-" autocmd FileType ruby,eruby,yaml setlocal iskeyword+=:
 
+" Highlight the current line in the active window
+" to make the current window more obvious
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
 
 " emacs-like beginning and end of line
 imap <c-e> <c-o>$
@@ -109,3 +110,6 @@ map Q @q
 
 " Doesn't store variables in sessions
 set ssop-=options
+
+" Makes CursorLine underline the current line instead of highlighting
+highlight CursorLine cterm=underline ctermbg=NONE
