@@ -110,3 +110,6 @@ map Q @q
 
 " Doesn't store variables in sessions
 set ssop-=options
+
+" Makes CursorLine bold the current line instead of highlighting
+highlight CursorLine cterm=bold ctermbg=NONE
