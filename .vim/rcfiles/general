@@ -113,3 +113,7 @@ set ssop-=options
 
 " Makes CursorLine bold the current line instead of highlighting
 highlight CursorLine cterm=bold ctermbg=NONE
+
+" Remove unnecessary formatting from folds. It's distracting.
+highlight Folded ctermbg=NONE cterm=NONE
+set fillchars="fold: "

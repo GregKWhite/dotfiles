@@ -26,6 +26,7 @@ nnoremap <leader>do :only<CR>
 nnoremap <leader>dt :call DiffUseTarget()<CR>
 nnoremap <leader>dm :call DiffUseMerge()<CR>
 nnoremap <leader>fb :Ag! binding.pry --ignore-dir vendor --ignore-dir tmp --ignore-dir tsv<CR>
+nnoremap <leader>fa zi
 nnoremap <leader>ft :Ag! TODO app<CR>
 nnoremap <leader>ga :!git add .<CR><CR>
 nnoremap <leader>gb :Gbrowse<CR>
