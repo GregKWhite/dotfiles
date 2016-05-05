@@ -62,6 +62,8 @@ nnoremap <leader>vr :e ~/.vimrc<CR>
 nnoremap <leader>vn :tabnew ~/Google\ Drive/notes.markdown<CR>
 nnoremap <leader>vv :vs ~/.vimrc<CR>
 nnoremap <leader>vs :UltiSnipsEdit<CR>
+nnoremap <leader>ms :mksession! ~/.vim_session <cr>
+nnoremap <leader>rs :source ~/.vim_session <cr>
 
 nnoremap <leader>iv :call InitializeVariables()<CR>
 
