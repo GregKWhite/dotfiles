@@ -13,18 +13,18 @@
   newNormal = "green bold"
   newHighlight = "green bold 22"
 [core]
-	editor = vim
+  editor = vim
   excludesfile = ~/.gitignore
-	pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
+  pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
 [push]
-	default = current
+  default = current
 [user]
-	name = Greg White
-	email = gkwhite95@gmail.com
+  name = Greg White
+  email = gkwhite95@gmail.com
 [color]
-	ui = true
+  ui = true
 [alias]
-	a = add -A
+  a = add -A
   cl = log --pretty=colored --date=short
   clg = log --pretty=colored --graph --date=short
   cm = commit -m
@@ -36,6 +36,6 @@
 [pretty]
   colored = format:%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s
 [help]
-	autocorrect = 5
+  autocorrect = 5
 [rerere]
-	enabled = true
+  enabled = true
