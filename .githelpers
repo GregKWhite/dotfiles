@@ -1,0 +1,16 @@
+#!/bin/bash
+
+git_pretty_log() {
+  retrieve_branch_parent | \
+    xargs -I{} git log {}.. --pretty=colored --date=short --no-merges
+}
+
+retrieve_branch_parent() {
+  branch=`git rev-parse --abbrev-ref HEAD`
+  git show-branch -a 2>/dev/null | \
+    grep '\*' | \
+    grep -v "$branch" | \
+    head -n1 | \
+    sed 's/.*\[\(.*\)\].*/\1/' | \
+    sed 's/[\^~].*//'
+}
