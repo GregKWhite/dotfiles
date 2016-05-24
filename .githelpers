@@ -1,8 +1,17 @@
 #!/bin/bash
 
+HASH="%C(yellow)%h%C(reset)"
+DATE="%C(red)%ad%C(reset)"
+AUTHOR="%C(blue)%an%C(reset)"
+TITLE="%s"
+
+FORMAT="$HASH}$DATE}$AUTHOR} $TITLE"
+
 git_pretty_log() {
   retrieve_branch_parent | \
-    xargs -I{} git log {}.. --pretty=colored --date=short --no-merges
+    xargs -I{} git log {}.. --pretty="${FORMAT}" --date=short --no-merges | \
+    column -s '}' -t | \
+    less --quit-if-one-screen --no-init --RAW-CONTROL-CHARS --chop-long-lines
 }
 
 retrieve_branch_parent() {
