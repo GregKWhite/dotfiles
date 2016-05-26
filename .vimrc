@@ -1,6 +1,8 @@
 " Want to set this before any others
 let mapleader = "\<Space>"
 
+set shell=/bin/bash\ -i
+
 function! s:SourceConfigFilesIn(directory)
   let directory_splat = '~/.vim/' . a:directory . '/*'
   for config_file in split(glob(directory_splat), '\n')
