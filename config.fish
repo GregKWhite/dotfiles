@@ -5,13 +5,8 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-# # Source Prezto.
-# if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-#   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-# fi
-
 # # Use rvm
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+rvm default
 
 # source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
@@ -72,7 +67,7 @@ alias s='git status'
 alias sb='git save '
 alias sf='source ~/.config/fish/config.fish'
 alias tls='tmux ls'
-alias t="TERM=screen-256color-bce tmux"
+alias t="env TERM=screen-256color-bce tmux"
 alias te='teamocil --here edge'
 alias tp='teamocil --here push'
 alias tv='teamocil --here vim'
