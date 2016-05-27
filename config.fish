@@ -8,6 +8,10 @@
 # # Use rvm
 rvm default
 
+# RVM actually works, but I'm getting an annoying error message. This prevents that message from appearing.
+rvm > /dev/null
+
+
 # source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 alias a='ls -Gfa'
@@ -96,4 +100,3 @@ set tacklebox_theme entropy
 
 # Load Tacklebox configuration
 . ~/.tacklebox/tacklebox.fish
-
