@@ -32,6 +32,7 @@
   cob = checkout -b
   ca = commit --amend --reuse-message HEAD
   save = !sh -c 'export PREV=$(git symbolic-ref HEAD|cut -d/ -f3-) && git checkout -b "$1" && git commit -am "$1" && git checkout "$PREV"' -
+  label = commit --allow-empty -m
 [pretty]
   colored = format:%C(yellow)%h %C(red)%ad %C(blue)%an %C(reset)%s
 [help]
