@@ -23,3 +23,7 @@ retrieve_branch_parent() {
     sed 's/.*\[\(.*\)\].*/\1/' | \
     sed 's/[\^~].*//'
 }
+
+set_upstream() {
+  git branch --set-upstream-to origin/$(git rev-parse --abbrev-ref HEAD) >/dev/null &
+}
