@@ -52,7 +52,7 @@ abbr -a oif='open -a finder .'
 abbr -a md='git merge develop'
 abbr -a pctags="`brew --prefix`/bin/ctags -R --exclude=.git --exclude=log --exclude=tmp --exclude=public --exclude=db --exclude=node *"
 abbr -a pd='git pull'
-abbr -a pu='git push'
+abbr -a pu='git push-up'
 abbr -a zc='rails console'
 abbr -a cs='rails console --sandbox'
 abbr -a rc='rubocop -f clang'
