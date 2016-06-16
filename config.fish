@@ -8,10 +8,6 @@
 # # Use rvm
 rvm default
 
-# RVM actually works, but I'm getting an annoying error message. This prevents that message from appearing.
-rvm > /dev/null
-
-
 # source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 abbr -a a='ls -Gfa'
@@ -28,10 +24,10 @@ abbr -a d='git diff'
 abbr -a dd='git diff develop'
 abbr -a dc='git diff --cached'
 abbr -a dp='git diff HEAD~1'
-abbr -a rdm='zeus rake apartment:migrate or zeus rake db:migrate'
-abbr -a rdr='zeus rake apartment:rollback or zeus rake db:rollback'
-abbr -a rds='zeus rake db:migrate:status'
-abbr -a rdt='zeus rake db:test:prepare'
+abbr -a rdm='rake apartment:migrate'
+abbr -a rdr='rake apartment:rollback'
+abbr -a rds='rake db:migrate:status'
+abbr -a rdt='rake db:test:prepare'
 abbr -a ectags="`brew --prefix`/bin/ctags -R --exclude=.git --exclude=log --exclude=public --exclude=tsv --exclude=db *"
 abbr -a ga='git add .'
 abbr -a gaf='git add'
@@ -57,12 +53,12 @@ abbr -a md='git merge develop'
 abbr -a pctags="`brew --prefix`/bin/ctags -R --exclude=.git --exclude=log --exclude=tmp --exclude=public --exclude=db --exclude=node *"
 abbr -a pd='git pull'
 abbr -a pu='git push'
-abbr -a zc='zeus console'
+abbr -a zc='rails console'
 abbr -a cs='rails console --sandbox'
 abbr -a rc='rubocop -f clang'
 abbr -a rd='rubodiff'
-abbr -a rs='zeus test'
-abbr -a rsf='rspec -t "~all" spec/functional'
+abbr -a rs='rspec'
+abbr -a rsf='rspec -t ~all'
 abbr -a rsp='jruby --dev -S rspec'
 abbr -a s='git status'
 abbr -a sb='git save'
@@ -81,6 +77,7 @@ abbr -a vf='vim ~/.config/fish/config.fish ; source ~/.config/fish/config.fish'
 set -x TERM 'xterm-256color'
 set -x PGDATA '/usr/local/var/postgres'
 set -x EDITOR 'vim'
+# set -xg PATH '~/.rvm/bin' $PATH
 
 # Paths to your tackle
 set tacklebox_path ~/.tackle ~/.tacklebox
