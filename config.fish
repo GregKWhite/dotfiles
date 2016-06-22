@@ -28,7 +28,7 @@ abbr -a rdm='rake apartment:migrate'
 abbr -a rdr='rake apartment:rollback'
 abbr -a rds='rake db:migrate:status'
 abbr -a rdt='rake db:test:prepare'
-abbr -a ectags="`brew --prefix`/bin/ctags -R --exclude=.git --exclude=log --exclude=public --exclude=tsv --exclude=db *"
+abbr -a ectags="ctags -R --exclude=.git --exclude=log --exclude=public --exclude=tsv --exclude=db *"
 abbr -a ga='git add .'
 abbr -a gaf='git add'
 abbr -a gc='git commit'
@@ -52,7 +52,7 @@ abbr -a oif='open -a finder .'
 abbr -a md='git merge develop'
 abbr -a pctags="`brew --prefix`/bin/ctags -R --exclude=.git --exclude=log --exclude=tmp --exclude=public --exclude=db --exclude=node *"
 abbr -a pd='git pull'
-abbr -a pu='git push-up'
+abbr -a pu='git push'
 abbr -a zc='rails console'
 abbr -a cs='rails console --sandbox'
 abbr -a rc='rubocop -f clang'
