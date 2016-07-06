@@ -111,8 +111,9 @@ map Q @q
 " Doesn't store variables in sessions
 set ssop-=options
 
-" Makes CursorLine bold the current line instead of highlighting
-highlight CursorLine cterm=bold ctermbg=NONE
+" Make CursorLine highlight the current line
+" (prolly the default, but I'd rather make sure since I change it often)
+highlight CursorLine cterm=NONE ctermbg=black
 
 " Remove unnecessary formatting from folds. It's distracting.
 highlight Folded ctermbg=NONE cterm=NONE
