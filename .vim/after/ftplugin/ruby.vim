@@ -1,4 +1,4 @@
-inoremap <CR> <C-R>=RubyEndToken()<CR>
+" inoremap <CR> <C-R>=RubyEndToken()<CR>
 
 " This is useful for formatting multiline arrays with gq
-set textwidth=100
+" set textwidth=100
