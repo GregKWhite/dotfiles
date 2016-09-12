@@ -109,7 +109,8 @@ let s:blue = { "gui": "#61AFEF", "cterm": "39", "cterm16": "4" } " Alternate cte
 
 let s:purple = { "gui": "#C678DD", "cterm": "170", "cterm16": "5" } " Alternate cterm: 176
 
-let s:cyan = { "gui": "#56B6C2", "cterm": "81", "cterm16": "6" } " Alternate cterm: 73
+" let s:cyan = { "gui": "#56B6C2", "cterm": "81", "cterm16": "6" } " Alternate cterm: 73
+let s:cyan = { "gui": "#56B6C2", "cterm": "222", "cterm16": "6" } " Alternate cterm: 73
 
 let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
 
