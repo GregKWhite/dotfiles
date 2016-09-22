@@ -67,6 +67,7 @@ abbr -a sb='git save'
 abbr -a sf='source ~/.config/fish/config.fish'
 abbr -a tat='tmux attach -t'
 abbr -a tns='tmux new-session -s'
+abbr -a tma='tmuxinator start arahull'
 abbr -a tls='tmux ls'
 abbr -a t='tmux'
 abbr -a te='teamocil --here edge'
@@ -81,7 +82,6 @@ alias pg-stop 'pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/serv
 set -x TERM 'xterm-256color'
 set -x PGDATA '/usr/local/var/postgres'
 set -x EDITOR 'vim'
-# set -xg PATH '~/.rvm/bin' $PATH
 
 # Paths to your tackle
 set tacklebox_path ~/.tackle ~/.tacklebox
