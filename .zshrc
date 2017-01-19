@@ -100,3 +100,6 @@ export EDITOR='vim'
 
 autoload -U promptinit && promptinit
 prompt pure
+
+export NVM_DIR="/Users/gregorywhite/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

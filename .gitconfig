@@ -14,7 +14,7 @@
   newHighlight = "green bold 22"
 [core]
   editor = vim
-  excludesfile = ~/.gitignore
+	excludesfile = /Users/gregorywhite/.gitignore
   pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
 [push]
   default = current
@@ -39,3 +39,9 @@
   autocorrect = 5
 [rerere]
   enabled = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

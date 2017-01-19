@@ -5,3 +5,5 @@
 tags
 .pryrc
 *.mine
+db/mongo_collections/**/*
+dump.rdb

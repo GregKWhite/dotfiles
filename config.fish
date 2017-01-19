@@ -5,16 +5,16 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-# # Use rvm
-rvm default
 
 # source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+# # Use rvm
+rvm default >&2;
 
 abbr -a a='ls -Gfa'
 abbr -a b='bundle'
 abbr -a c='clear'
 abbr -a cdd='cd ~/dotfiles'
-abbr -a cds='cd ~/google\ drive/ucf/spring\ 2016'
+abbr -a cds='cd ~/google\ drive/ucf/spring\ 2017'
 abbr -a cdp='cd ~/railsapps/push'
 abbr -a cde='cd ~/railsapps/edge'
 abbr -a co='git checkout'
@@ -48,6 +48,8 @@ abbr -a sps='git stash show -p stash@"{0}"'
 abbr -a ss='git stash'
 abbr -a sp='git stash pop'
 abbr -a grd='git rebase -i develop'
+abbr -a gra='git rebase --abort'
+abbr -a grc='git rebase --continue'
 abbr -a l='git cl'
 abbr -a lg='git clg'
 abbr -a oif='open -a finder .'
@@ -57,7 +59,7 @@ abbr -a pd='git pull'
 abbr -a pu='git push'
 abbr -a zc='rails console'
 abbr -a cs='rails console --sandbox'
-abbr -a rc='rubocop -f clang'
+abbr -a rc='rubocop'
 abbr -a rd='rubodiff'
 abbr -a rs='rspec'
 abbr -a rsf='rspec -t ~all'
@@ -88,3 +90,13 @@ set tacklebox_path ~/.tackle ~/.tacklebox
 
 # Load Tacklebox configuration
 . ~/.tacklebox/tacklebox.fish
+
+begin
+    set --local AUTOJUMP_PATH $HOME/.autojump/share/autojump/autojump.fish
+    if test -e $AUTOJUMP_PATH
+        source $AUTOJUMP_PATH
+    end
+end
+
+
+

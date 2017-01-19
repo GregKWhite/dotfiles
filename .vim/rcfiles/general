@@ -118,3 +118,7 @@ highlight CursorLine cterm=NONE ctermbg=black
 " Remove unnecessary formatting from folds. It's distracting.
 highlight Folded ctermbg=NONE cterm=NONE
 set fillchars="fold: "
+
+" Improves performance, even if only slightly
+set ttyfast
+set lazyredraw

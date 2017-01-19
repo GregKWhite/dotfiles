@@ -143,7 +143,7 @@ function! InitializeVariables()
   normal! 'aO
 
   " Write out the attr_accessors for the params
-  normal! Sattr_accessor 
+  normal! Sattr_reader 
   normal! "apo
   normal! k
 
