@@ -6,9 +6,9 @@
 #
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+#   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+# fi
 
 # Use rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
